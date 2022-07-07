@@ -8,14 +8,14 @@ Proyecto CRM de SomosCoders Bootcamp
 # enrutado
 
 * / (index.js) harsh
-    
+* about us (in index)    
 * /sign-up/ (signup.js) david
   * /sign-up/user/admin tetiana
   * /sign-up/user/slave yeva
   * /sign-up/user/admin/company cristian
 
 * /log-in (login.js) harsh
-  
+ 
 * /start-page (start-page.js) (after login page, with       functionalities, has sales data dashboard option) david
 
 * /dashboard (dashboard.js) tetiana
