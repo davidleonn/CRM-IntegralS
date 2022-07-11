@@ -1,0 +1,51 @@
+<%- include('partials/head'); %>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<title>Expenses form</title>  
+
+<body>
+    <%- include('partials/header'); %>
+    <main>
+
+<form class="row">
+    <div class="col-md-6">
+      <label class="form-label">Product Name</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Company Name</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Quantity sold</label>
+      <input type="email" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Sthing</label>
+      <select name="" id="" class="form-select">
+        <option value="">Punjab</option>
+        <option value="">Sindh</option>
+        <option value="">Kpk</option>
+        <option value="">Balochistan</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Id</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Upload Bill</label>
+      <input type="file" class="form-control">
+    </div>
+    
+    <div class="col-md-12">
+      <br>
+      <button class="btn btn-primary form-control">Submit</button>
+    </div>
+</form>
+
+</main>
+<%- include('partials/footer'); %>
+</body>
+</html>
