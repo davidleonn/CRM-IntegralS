@@ -1,5 +1,4 @@
 var express = require('express');
-const res = require('express/lib/response');
 var router = express.Router();
 
 /* GET signup page. */
@@ -13,7 +12,7 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.get('/slave', function(req, res, next) {
-  res.render('slave-sign-up');
+  res.render('signup-slave');
 });
 
 
