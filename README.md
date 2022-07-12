@@ -18,7 +18,7 @@ Proyecto CRM de SomosCoders Bootcamp
  
 * /start-page (start-page.js) (after login page, with functionalities, has sales data dashboard option) david
 
-* /dashboard (dashboard.js) tetiana
+* /dashboard (dashboard.js) 
     * /dashboard/data-entry 
       * /dashboard/data-entry/sales david (ingresos)
       * /dashboard/data-entry/expenses david (gastos)
