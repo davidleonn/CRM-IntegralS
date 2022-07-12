@@ -11,4 +11,9 @@ router.get('/expenses', function(req, res, next) {
   res.render('expenses');
 });
 
+/* GET sales page. */
+router.get('/sales', function(req, res, next) {
+  res.render('sales');
+});
+
 module.exports = router;

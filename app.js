@@ -11,8 +11,8 @@ var signupRouter = require('./routes/signup');
 var startpageRouter = require('./routes/startpage');
 var dashboardRouter = require('./routes/dashboard');
 var pricingRouter = require('./routes/pricing');
-var salesRouter = require('./routes/sales');
-//var expensesRouter = require('./routes/expenses');
+var aboutusRouter = require('./routes/aboutus');
+
 
 var app = express();
 
@@ -34,8 +34,8 @@ app.use('/signup', signupRouter);
 app.use('/startpage', startpageRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/pricing', pricingRouter);
-app.use('/sales', salesRouter);
-//app.use('/expenses', expensesRouter);
+app.use('/aboutus', aboutusRouter);
+
 
 
 // catch 404 and forward to error handler
