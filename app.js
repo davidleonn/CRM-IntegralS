@@ -11,9 +11,9 @@ var signupRouter = require('./routes/signup');
 var startpageRouter = require('./routes/startpage');
 var dashboardRouter = require('./routes/dashboard');
 var pricingRouter = require('./routes/pricing');
-var aboutusRouter = require('./routes/aboutus');
-
-
+// // var salesRouter = require('./routes/sales');
+// var expensesRouter = require('./routes/expenses');
+var showdataRouter = require('./routes/showdata');
 var app = express();
 
 // view engine setup
@@ -34,7 +34,9 @@ app.use('/signup', signupRouter);
 app.use('/startpage', startpageRouter);
 app.use('/dashboard', dashboardRouter);
 app.use('/pricing', pricingRouter);
-app.use('/aboutus', aboutusRouter);
+app.use('/sales', salesRouter);
+app.use('/expenses', expensesRouter);
+app.use(showdataRouter);
 
 
 
@@ -53,5 +55,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(5000,  (error) => {
+  error ? console.log(["not listen"]) : console.log("server listen");
+})
 
 module.exports = app;
