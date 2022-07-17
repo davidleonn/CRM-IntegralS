@@ -10,10 +10,10 @@ var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var startpageRouter = require('./routes/startpage');
 var dashboardRouter = require('./routes/dashboard');
-var pricingRouter = require('./routes/pricing');
-// // var salesRouter = require('./routes/sales');
-// var expensesRouter = require('./routes/expenses');
-var showdataRouter = require('./routes/showdata');
+//var pricingRouter = require('./routes/pricing');
+//var salesRouter = require('./routes/sales');
+//var expensesRouter = require('./routes/expenses');
+//var showdataRouter = require('./routes/showdata');
 var app = express();
 
 // view engine setup
@@ -33,10 +33,10 @@ app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/startpage', startpageRouter);
 app.use('/dashboard', dashboardRouter);
-app.use('/pricing', pricingRouter);
-app.use('/sales', salesRouter);
-app.use('/expenses', expensesRouter);
-app.use(showdataRouter);
+//app.use('/pricing', pricingRouter);
+//app.use('/sales', salesRouter);
+//app.use('/expenses', expensesRouter);
+//app.use(showdataRouter);
 
 
 

@@ -26,4 +26,5 @@ Proyecto CRM de SomosCoders Bootcamp
       * /dashboard/show-data/summary  
       * /dashboard/show-data/sales 
       * /dashboard/show-data/expenses 
-  
+
+Change dashboard routes, take out the 
