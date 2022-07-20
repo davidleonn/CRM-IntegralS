@@ -28,4 +28,9 @@ router.get('/show-data/expenses', function(req, res, next) {
 router.get('/show-data/summary', function(req, res, next) {
   res.render('showdatasummary');
 })
+
+router.get('/contact', function(req, res, next) {
+  res.render('contact');
+});
+
 module.exports = router;
