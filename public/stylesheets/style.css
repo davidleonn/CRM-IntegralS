@@ -7,8 +7,13 @@
 }
 
 footer{
-    position: absolute;
-    bottom: 0px !important;
+    /* position: absolute; */
+    bottom: 0px;
+    width:100%;
+    /* position: fixed; */
+    height: 50px;
+    background-color: #141619;
+    position: relative; 
 }
 
 section .sign-up-form{
@@ -34,4 +39,31 @@ section .sign-up-form{
     text-decoration: none;
     color: #555;
   }
+
+
+
+     
+    table, td, th{
+    background-color: #d3d3d3 ;
+    border: 1px solid black;
+    height: 40px;
+    width: 500px;
+    text-align: center;
+    }
+
+    table {
+        margin-top: 20px;
+    }
+    .maindisplaydata{
+        display: grid;
+        justify-content: center;
+
+    }
+    .hdisplaydatat{
+        text-align: center;
+    }
+
+
+
+
   
