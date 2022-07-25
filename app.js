@@ -6,12 +6,17 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 require('dotenv').config();
 
-const mongoURL=process.env.mongoURL
+//link for connecting to db through compass
+//user lol  passowrd  pass123
+//mongodb+srv://lol:pass123@crm.hlpev.mongodb.net/?retryWrites=true&w=majority
+
+
+const mongoURL = process.env.mongoURL
 console.log(mongoURL)
 mongoose
        .connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
        .then((res)=>console.log("Connection to DB"))
-       .catch((error)=>console.log(error))
+       .catch((error)=>console.log(error, "not connected"))
 
 
 // // 
@@ -41,13 +46,6 @@ app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/startpage', startpageRouter);
 app.use('/dashboard', dashboardRouter);
-//app.use('/pricing', pricingRouter);
-//app.use('/sales', salesRouter);
-//app.use('/expenses', expensesRouter);
-//app.use(showdataRouter);
-
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -64,8 +62,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(5000,  (error) => {
-  error ? console.log(["not listen"]) : console.log("server listen");
-})
+// app.listen(3000,  (error) => {
+//   error ? console.log(["not listen"]) : console.log("server listen");
+// })
 
 module.exports = app;
