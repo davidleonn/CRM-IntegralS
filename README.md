@@ -27,4 +27,5 @@ Proyecto CRM de SomosCoders Bootcamp
       * /dashboard/show-data/sales 
       * /dashboard/show-data/expenses 
 
-Change dashboard routes, take out the 
+
+In header for user logged in user info button needs to be added for user to log out!

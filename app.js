@@ -4,16 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+require('dotenv').config();
 
-// Connection to mongo db
-var mongoURL = "mongodb://localhost:27017/CRM";
+const mongoURL=process.env.mongoURL
+console.log(mongoURL)
+mongoose
+       .connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
+       .then((res)=>console.log("Connection to DB"))
+       .catch((error)=>console.log(error))
 
-mongoose.connect(mongoURL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then (result => console.log("connected to mongodb CRM"))
-.catch(error => console.error("mongo connection not made"))
+
+// // 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
