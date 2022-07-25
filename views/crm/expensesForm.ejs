@@ -88,6 +88,38 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
               <h1 class="h2">Dashboard</h1>
             </div>
+
+            <form action="/dashboard/enter-data/expenses/post" method="post" class="row">
+              <div class="col-md-6">
+                <label class="form-label">Product Name</label>
+                <input name="productName"type="text" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Company Name</label>
+                <input name="companyName" type="text" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Quantity sold</label>
+                <input name="productQuantity" type="number" class="form-control">
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Id</label>
+                <input name="productID" type="text" class="form-control">
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Price of unit</label>
+                <input name="productPrice" type="number" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Upload Bill</label>
+                <input type="file" class="form-control">
+              </div>
+              
+              <div class="col-md-12">
+                <br/>
+                <input type="submit" class="btn btn-primary form-control" placeholder="Submit"/>
+              </div>
+          </form>
           </main>
         </div>
       </div>

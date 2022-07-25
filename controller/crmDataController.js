@@ -32,10 +32,10 @@ const expenses_form_post = (req, res) => {
     const expense = new crmData.Expenses(req.body);
     expense.save()
         .then(result => {
-            res.redirect('/dashboard/enter-data/expenses/post')
+            res.redirect('/dashboard')
         })
         .catch(error => {
-            console.log(error)
+            res.send("expense data form fuckup")
         })
  }
 
@@ -49,10 +49,21 @@ const expenses_form_post = (req, res) => {
         console.error("couldnt get sales")
     })
  }
+
+ const expenses_report = (req, res) => {
+    crmData.Expenses.find()
+    .then((result) => {
+        res.render('../views/crm/expensesReport', { expenses: result })
+    })
+    .catch((error) => {
+        console.error("couldnt get expenses")
+    })
+ }
  module.exports = {
     sales_form,
     sales_form_post,
     expenses_form,
     expenses_form_post,
-    sales_report
+    sales_report,
+    expenses_report
  }
