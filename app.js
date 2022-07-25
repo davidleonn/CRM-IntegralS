@@ -18,6 +18,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var crmRouter = require('./routes/crmData');
+var customerSupportRouter = require('./routes/customerSupport');
 var app = express();
 
 // view engine setup
@@ -36,6 +37,7 @@ app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/dashboard', crmRouter);
+app.use('/customer-support', customerSupportRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

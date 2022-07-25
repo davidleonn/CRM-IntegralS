@@ -19,8 +19,4 @@ router.get('/enter-data/sales', crmDataController.sales_form);
 router.post('/enter-data/sales/post', crmDataController.sales_form_post);
 
 
-router.get('/contact', function(req, res, next) {
-  res.render('../views/crm/salesForm');
-});
-
 module.exports = router;
