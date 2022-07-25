@@ -5,7 +5,7 @@ const crmData = require('../model/crmDataModel');
  * expenses_form
  * sales_form_post
  * expenses_form_post
- * 
+ * sales_report
  */
 
 
@@ -39,9 +39,20 @@ const expenses_form_post = (req, res) => {
         })
  }
 
+
+ const sales_report = (req, res) => {
+    crmData.Sales.find()
+    .then((result) => {
+        res.render('../views/crm/salesReport', { sales: result })
+    })
+    .catch((error) => {
+        console.error("couldnt get sales")
+    })
+ }
  module.exports = {
     sales_form,
     sales_form_post,
     expenses_form,
-    expenses_form_post
+    expenses_form_post,
+    sales_report
  }

@@ -16,9 +16,7 @@ router.get('/enter-data/sales', crmDataController.sales_form);
 
 router.post('/enter-data/sales/post', crmDataController.sales_form_post);
 
-router.get('/show-data/sales', function(req, res, next) {
-  res.render('../views/crm/salesReport');
-})
+router.get('/show-data/sales', crmDataController.sales_report);
 
 
 router.get('/show-data/expenses', function(req, res, next) {
