@@ -3,6 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+
+// Connection to mongo db
+var mongoURL = "mongodb://localhost:27017/CRM";
+
+mongoose.connect(mongoURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then (result => console.log("connected to mongodb CRM"))
+.catch(error => console.error("mongo connection not made"))
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -10,10 +21,6 @@ var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var startpageRouter = require('./routes/startpage');
 var dashboardRouter = require('./routes/dashboard');
-//var pricingRouter = require('./routes/pricing');
-//var salesRouter = require('./routes/sales');
-//var expensesRouter = require('./routes/expenses');
-//var showdataRouter = require('./routes/showdata');
 var app = express();
 
 // view engine setup
