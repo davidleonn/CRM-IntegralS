@@ -10,7 +10,7 @@ const salesSchema = new Schema ({
         type: String,
         required: true
     },
-    quantity:{
+    productQuantity:{
         type: String,
         required: true
     },
@@ -18,10 +18,13 @@ const salesSchema = new Schema ({
         type: String,
         required: true
     },
+    productPrice:{
+        type: Number,
+        required: true
+    }
 
 }, {timestamps: true});
 
-const Sales = mongoose.model('Sales', salesSchema);
 
 const expensesSchema = new Schema ({
     productName:{
@@ -39,10 +42,11 @@ const expensesSchema = new Schema ({
     productID:{
         type: String,
         required: true
-    },
+    }
 
 }, {timestamps: true});
 
+const Sales = mongoose.model('Sales', salesSchema);
 const Expenses = mongoose.model('Expenses', expensesSchema);
 
 module.exports = {
