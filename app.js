@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
+const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+const config = require('./config')
 require('dotenv').config();
 
 const mongoURL = process.env.mongoURL
@@ -38,6 +42,35 @@ app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/dashboard', crmRouter);
 app.use('/customer-support', customerSupportRouter);
+
+
+//Linkedin oauth
+app.use(session({
+  resave: false,
+  saveUninitialized: true,
+  secret: 'SECRET'
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function (user, callback) {
+  callback(null, user);
+});
+
+passport.deserializeUser(function (obj, callback) {
+  callback(null, obj);
+});
+
+passport.use(new LinkedInStrategy({
+  clientID: config.linkedinAuth.clientID,
+  clientSecret: config.linkedinAuth.clientSecret,
+  callbackURL: config.linkedinAuth.callbackURL,
+  scope: ['r_emailaddress', 'r_liteprofile'],
+}, function (token, tokenSecret, profile, done) {
+  return done(null, profile);
+}
+));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
