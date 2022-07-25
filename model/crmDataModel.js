@@ -11,7 +11,7 @@ const salesSchema = new Schema ({
         required: true
     },
     productQuantity:{
-        type: String,
+        type: Number,
         required: true
     },
     productID:{
@@ -35,12 +35,16 @@ const expensesSchema = new Schema ({
         type: String,
         required: true
     },
-    quantity:{
+    productQuantity:{
         type: String,
         required: true
     },
     productID:{
         type: String,
+        required: true
+    },
+    productPrice:{
+        type: Number,
         required: true
     }
 

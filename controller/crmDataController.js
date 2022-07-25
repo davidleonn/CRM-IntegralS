@@ -7,8 +7,10 @@ const crmData = require('../model/crmDataModel');
  * expenses_form_post
  * 
  */
+
+
 //Sales form
- const sales_form = (req, res) => res.render('sales');
+ const sales_form = (req, res) => res.render('../views/crm/salesForm');
 
  const sales_form_post = (req, res) => {
     console.log(req.body);
@@ -18,21 +20,28 @@ const crmData = require('../model/crmDataModel');
             res.redirect('/dashboard')
         })
         .catch(error => {
-            console.log(error)
+            res.send("sales data form fuckup")
         })
  }
 
 //Sales form
-const expenses_form = (req, res) => res.render('expenses');
+const expenses_form = (req, res) => res.render('../views/crm/expensesForm');
 
 const expenses_form_post = (req, res) => {
     console.log(req.body);
     const expense = new crmData.Expenses(req.body);
     expense.save()
         .then(result => {
-            res.redirect('/dashboard')
+            res.redirect('/dashboard/enter-data/expenses/post')
         })
         .catch(error => {
             console.log(error)
         })
+ }
+
+ module.exports = {
+    sales_form,
+    sales_form_post,
+    expenses_form,
+    expenses_form_post
  }
