@@ -45,12 +45,12 @@ const user_login_auth = async (req, res) => {
         const cmp = await bcrypt.compare(req.body.password, user.password);
         if (cmp) {
           //   ..... further code to maintain authentication like jwt or sessions
-          res.send("Auth Successful");
+          res.redirect('/dashboard');
         } else {
-          res.send("Wrong username or password.");
+          res.render('login');
         }
       } else {
-        res.send("Wrong username or password.");
+        res.render('login');
       }
     } catch (error) {
       console.log(error);
