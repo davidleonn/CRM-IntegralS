@@ -1,12 +1,14 @@
 const passport = require('passport');
 var express = require('express');
 var router = express.Router();
-
+const userController = require('../controller/userController');
 
 /* GET login page. */
 router.get('/', function(req, res, next) {
   res.render('login');
 });
+
+router.post('/auth', userController.user_login_auth);
 
 /* Linkedin Log In*/
 router.get('/', function (req, res) {
@@ -15,7 +17,7 @@ router.get('/', function (req, res) {
 
 router.get('/profile', isLoggedIn, function (req, res) {
   res.render('pages/profile.ejs', {
-    useqr: re.user // obtiene el usuario de la sesion y pasa a la siguiente
+    useqr: req.user // obtiene el usuario de la sesion y pasa a la siguiente
   });
 });
 
