@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const userController = require('../controller/userController');
 
 /* GET signup page. */
 router.get('/', function(req, res, next) {
@@ -7,13 +8,9 @@ router.get('/', function(req, res, next) {
 })
 
 /* GET signup page. */
-router.get('/admin', function(req, res, next) {
-  res.render('signup-admin');
-});
+router.post('/register', userController.user_signup_post);
 
-router.get('/slave', function(req, res, next) {
-  res.render('signup-slave');
-});
+
 
 
 module.exports = router;
