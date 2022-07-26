@@ -36,9 +36,6 @@ const workerSchema  = new Schema ({
         required: true
     },
     
-    
-
-
 });
 
 
