@@ -5,7 +5,20 @@ const Schema = mongoose.Schema;
 
 //set schema using the constructor
 const userSchema = new Schema ({
-    username: {
+    name:{
+        type: String,
+        required: true
+    },
+    companyId:{
+        type: String,
+        required: true
+    },
+    telephone:{
+        type: Number,
+        required: true,
+        unique: true
+    },
+    username:{
         type: String,
         required: true,
         unique: true
@@ -14,10 +27,6 @@ const userSchema = new Schema ({
         type: String,
         required: true,
         unique: true
-    },
-    name:{
-        type: String,
-        required: true
     },
     password:{
         type: String,

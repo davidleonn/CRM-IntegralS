@@ -16,9 +16,11 @@ const user_signup_post = (req, res) => {
     console.log(req.body);
     const encryptedPassword = bcrypt.hashSync(req.body.password, saltRounds)
     const user = new User({
+        name: req.body.name,
+        companyId: req.body.companyId,
+        telephone: req.body.telephone,
         username: req.body.username,
         email: req.body.email,
-        name: req.body.name,
         password: encryptedPassword
     });
 
