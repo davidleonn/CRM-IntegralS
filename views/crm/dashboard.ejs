@@ -7,9 +7,7 @@
     <title>Dashboard</title>
     <style>
       .canvas-container{
-        border: 1px solid black;
-        width: 300px;
-        height: 300px;
+        width: 400px;
       }
     </style>
 </head>
@@ -20,21 +18,25 @@
     <div class="container-fluid">
       <div class="row">
         <%- include('../partials/sideNavbar'); %>  
-
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Summary</h1>
-          </div>
-          <div class="canvas-container">
-            <canvas class="my-4 chartjs-render-monitor" id="myChart"></canvas>
-          </div>
-
-          <h2>Section title</h2>
+          <h1 class="h2">Summary</h1>
+          <div class="d-flex justify-content flex-wrap ">
+            <div class="canvas-container">
+              <canvas class="my-4 chartjs-render-monitor" id="myChart"></canvas>
+            </div>
+            <div class="canvas-container">
+              <canvas class="my-4 chartjs-render-monitor" id="myChart1"></canvas>
+            </div>
+            <div class="canvas-container">
+              <canvas class="my-4 chartjs-render-monitor" id="myChart2"></canvas>
+            </div>
+            <div class="canvas-container">
+              <canvas class="my-4 chartjs-render-monitor" id="myChart3"></canvas>
+            </div>
           </div>
         </main>
       </div>
-
+    </div>
 
     <%- include('../partials/footer'); %>
 
@@ -58,19 +60,40 @@
     labels: labels,
     datasets: [{
       label: 'Test',
-      backgroundColor: 'rgb(255, 99, 132)',
+      backgroundColor: ['rgb(255, 99, 132)', 'red', 'blue', 'green', 'yellow', 'black','red', 'blue', 'green', 'yellow', 'black'],
       borderColor: 'rgb(255, 99, 132)',
       data: [0, 10, 5, 2, 20, 30, 45, 60, 75, 90, 50, 10],
     }]
   };
 
   const config = {
+    type: 'bar',
+    data: data,
+    options: {}
+  }; 
+  const config1 = {
     type: 'line',
     data: data,
     options: {}
   };
+  const config2 = {
+    type: 'pie',
+    data: data,
+    options: {}
+  };
+  const config3 = {
+    type: 'bar',
+    data: data,
+    options: {}
+  };
       var myChart = document.getElementById("myChart").getContext("2d");
+      var myChart1 = document.getElementById("myChart1").getContext("2d");
+      var myChart2 = document.getElementById("myChart2").getContext("2d");
+      var myChart3 = document.getElementById("myChart3").getContext("2d");
       var barChart = new Chart (myChart, config);
+      var barChart1 = new Chart (myChart1, config1);
+      var barChart2 = new Chart (myChart2, config2);
+      var barChart3 = new Chart (myChart3, config3);
     </script>
 
     
