@@ -26,7 +26,9 @@ const user_signup_post = (req, res) => {
 
     user.save()
         .then(result => {
-            res.redirect('/dashboard')
+          res.cookie("userId", user._id, {maxAge: 860000000, httpOnly: true});
+          res.cookie("companyId", user.companyId, {maxAge: 86000000, httpOnly: true});
+          res.redirect('/dashboard')
         })
         .catch(error => {
             console.log(error)
@@ -45,8 +47,8 @@ const user_login_auth = async (req, res) => {
         const cmp = await bcrypt.compare(req.body.password, user.password);
         if (cmp) {
           //   ..... further code to maintain authentication like jwt or sessions
-          res.cookie("userId", user._id, {maxAge: 86000, httpOnly: true});
-          res.cookie("companyId", user.companyId, {maxAge: 86000, httpOnly: true});
+          res.cookie("userId", user._id, {maxAge: 860000000, httpOnly: true});
+          res.cookie("companyId", user.companyId, {maxAge: 86000000, httpOnly: true});
           res.redirect('/dashboard');
         } else {
           res.render('login');

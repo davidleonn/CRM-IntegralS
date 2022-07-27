@@ -72,7 +72,6 @@ const expenses_report = (req, res) => {
     const cookies = req.cookies;
     crmData.Expenses.find({companyId : cookies.companyId})
         .then((result) => {
-            console.log(result);
             res.render('../views/crm/expensesReport', { expenses: result })
         })
         .catch((error) => {
@@ -85,7 +84,6 @@ const summary_report = (req, res) => {
     const cookies = req.cookies;
     crmData.Sales.find({companyId: cookies.companyId})
         .then((result) => {
-            console.log(req.cookies);
             res.render('../views/crm/dashboard', { sales: result })
         })
         .catch((error) => {
@@ -97,7 +95,6 @@ const summary_report = (req, res) => {
 const sales_read_single = (req, res) => {
     const id = req.params.id;
     const cookies = req.cookies;
-    console.log(req.params)
     crmData.Sales.findById(id)
         .then(result => res.render('../views/crm/salesReportSingle', { sales: result }))
         .catch(error => res.render('error'))
