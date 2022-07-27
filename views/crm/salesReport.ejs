@@ -24,12 +24,12 @@
                 <table class="table table-striped table-sm">
                   <thead>
                     <tr>
+                      <th>link</th>
                       <th>Sales ID</th>
+                      <th>Date</th>
                       <th>Company Name</th>
                       <th>Product name</th>
                       <th>Quantity </th>
-                      <th>Product ID</th>
-                      <th>Product Unit Price</th>
                       <th>Sales total value ($) </th>
                     </tr>
                   </thead>
@@ -37,12 +37,11 @@
                     <% sales.forEach(sale => { %>
                       <tbody>
                         <tr>
-                          <td><%= sale._id %></td>
+                          <td><a href="/dashboard/show-data/sales/<%= sale.id %>"><%= sale._id %></a> </td>
+                          <td><%= sale.createdAt %></td>
                           <td><%= sale.companyName %></td>
                           <td><%= sale.productName %></td>
                           <td><%= sale.productQuantity %></td>
-                          <td><%= sale.productID %></td>
-                          <td><%= sale.productPrice %></td>
                           <td><%= (sale.productPrice * sale.productQuantity) %></td>
                         </tr>
                       </tbody>

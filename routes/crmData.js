@@ -11,10 +11,12 @@ router.get('/show-data/expenses', crmDataController.expenses_report);
 router.get('/enter-data/expenses', crmDataController.expenses_form);
 router.post('/enter-data/expenses/post', crmDataController.expenses_form_post);
 
+
 /* Expenses routes. */
 router.get('/show-data/sales', crmDataController.sales_report);
 router.get('/enter-data/sales', crmDataController.sales_form);
 router.post('/enter-data/sales/post', crmDataController.sales_form_post);
+router.get('/show-data/sales/:id', crmDataController.sales_read_single)
 
 
 module.exports = router;

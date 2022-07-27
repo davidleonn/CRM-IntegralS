@@ -37,7 +37,16 @@ const sales_form_post = (req, res) => {
 const expenses_form = (req, res) => res.render('../views/crm/expensesForm');
 
 const expenses_form_post = (req, res) => {
-    const expense = new crmData.Expenses(req.body);
+    const cookies = req.cookies;
+    const expense = new crmData.Expenses({
+        productName: req.body.productName,
+        companyName: req.body.companyName,
+        productQuantity: req.body.productQuantity,
+        productId: req.body.productId,
+        productPrice: req.body.productPrice,
+        companyId: cookies.companyId,
+        userId: cookies.userId
+    });
     expense.save()
         .then(result => {
             res.redirect('/dashboard')
@@ -85,6 +94,15 @@ const summary_report = (req, res) => {
 
 };
 
+const sales_read_single = (req, res) => {
+    const id = req.params.id;
+    const cookies = req.cookies;
+    console.log(req.params)
+    crmData.Sales.findById(id)
+        .then(result => res.render('../views/crm/salesReportSingle', { sales: result }))
+        .catch(error => res.render('error'))
+}
+
 module.exports = {
     sales_form,
     sales_form_post,
@@ -92,6 +110,7 @@ module.exports = {
     expenses_form_post,
     sales_report,
     expenses_report,
-    summary_report
+    summary_report,
+    sales_read_single
 }
 

@@ -47,7 +47,7 @@ const expensesSchema = new Schema ({
         type: String,
         required: true
     },
-    productID:{
+    productId:{
         type: String,
         required: true
     },
