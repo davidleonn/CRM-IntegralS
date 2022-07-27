@@ -4,9 +4,7 @@ var router = express.Router();
 const crmDataController = require('../controller/crmDataController')
 
 /* GET dashboard page. */
-router.get('/', function(req, res, next) {
-  res.render('../views/crm/dashboard', { title: 'Express' });
-});
+router.get('/', crmDataController.summary_report);
 
 /* sales routes. */
 router.get('/show-data/expenses', crmDataController.expenses_report);

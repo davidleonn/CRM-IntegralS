@@ -1,3 +1,4 @@
+// Required modules
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,16 +8,18 @@ var mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-const config = require('./config')
+const config = require('./config');
 require('dotenv').config();
 
-const mongoURL = process.env.mongoURL
-console.log(mongoURL)
+
+//mongoDB connection
+const mongoURL = process.env.mongoURL;
 mongoose
        .connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
        .then((res)=>console.log("Connection to DB"))
        .catch((error)=>console.log(error, "not connected"))
 
+// App routes imports
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
@@ -29,6 +32,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -37,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use(express.static(__dirname + '/node_modules/chart.js/dist'));
 
+//App routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
@@ -87,9 +92,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// app.listen(3000,  (error) => {
-//   error ? console.log(["not listen"]) : console.log("server listen");
-// })
 
 module.exports = app;

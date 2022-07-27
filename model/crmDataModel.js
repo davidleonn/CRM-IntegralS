@@ -50,6 +50,10 @@ const expensesSchema = new Schema ({
 
 }, {timestamps: true});
 
+const summarySchema = new Schema ({
+    
+})
+
 const Sales = mongoose.model('Sales', salesSchema);
 const Expenses = mongoose.model('Expenses', expensesSchema);
 
